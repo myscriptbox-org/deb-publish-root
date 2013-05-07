@@ -10,19 +10,19 @@
                 allow from all
         </Directory>
 
-	<Directory "{documentRoot}/*/conf">
+	<Directory "{documentRoot}/apt/*/conf">
                 Order allow,deny
                 Deny from all
                 Satisfy all
         </Directory>
 
-	<Directory "{documentRoot}/*/db">
+	<Directory "{documentRoot}/apt/*/db">
                 Order allow,deny
                 Deny from all
                 Satisfy all
         </Directory>
 
-	<Directory "{documentRoot}/*/incoming">
+	<Directory "{documentRoot}/apt/*/incoming">
                 Order allow,deny
                 Deny from all
                 Satisfy all

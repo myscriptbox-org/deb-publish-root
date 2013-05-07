@@ -1,6 +1,6 @@
 # man page for deb-publish-root.
 ## NAME 
-**deb-publish-root** the server installation, publication user accounts and domains on a remote debian repository publication server. You need to be root on the remote server to use this program.
+**deb-publish-root** server installation, publication user accounts and domains on a remote debian repository publication server. You need to be root on the remote server to use this program.
 
 ## SYNOPSIS
 **deb-publish-root** [objectPath] [ objectId1 ... objectIdN ] -action [ actionArg1 .. actionArgM]
