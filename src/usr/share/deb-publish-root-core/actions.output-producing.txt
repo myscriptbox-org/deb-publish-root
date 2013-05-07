@@ -1,0 +1,11 @@
+show
+show-user
+show-users
+show-domains
+show-vhosts
+check-if-installed
+verify-system
+check
+exists
+is-running
+

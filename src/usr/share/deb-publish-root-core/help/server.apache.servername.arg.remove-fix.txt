@@ -1,0 +1,4 @@
+The command {program} apache.servername -fix will supply a default server name. This command will remove the fix. Example:
+{program} apache.servername root@myserver.com -remove-fix{br}
+This command is being supplied in a policy of maintaining the ability to undo/reverse each command, when possible. A command that cannot be undone, becomes strategic. This policy tries to limit the number of strategic commands to the bare minimum possible.
+

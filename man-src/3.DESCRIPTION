@@ -1,0 +1,24 @@
+[[server]]
+Use this object path to manage server-wide installation of packages on the remote server.
+
+[[server.apache]]
+Use this object path to manage the apache-related installation on the remote server.
+
+[[server.apache.servername]]
+Use this object path to fix the apache server name on the remote server, if needed.
+
+[[server.reprepro]]
+Use this object path to manage the reprepro-related installation on the remote server.
+
+[[server.user]]
+Use this object path to manage a publication user account on the remote server.
+
+[[server.users]]
+Use this object path to inquire on the collection of publication user accounts on the remote server.
+
+[[server.vhost]]
+Use this object path to manage publication domains on the remote server.
+
+[[server.vhosts]]
+Use this object path to inquire on the collection of publication domains on the remote server.
+

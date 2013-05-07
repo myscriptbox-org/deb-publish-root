@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#-------------------------------------------------------
+# Written by Erik Poupaert
+# Phnom Penh, Cambodia, April 2013
+# Licensed under the General Public License (GPL)
+#-------------------------------------------------------
+
+function server_package_check_if_installed
+{
+        rootAtServer="$1"
+        packageDesired="$2"
+        result=$($SSH "$rootAtServer" dpkg-query --list "$packageDesired" 2> /dev/null | tail -n+6)
+        read installed packageFound version name <<< "$result"
+        if [ "$installed" = "ii" ] && [ "$packageDesired" = "$packageFound" ] ; then
+                echo "yes"
+        else
+                echo "no"
+        fi
+}
+

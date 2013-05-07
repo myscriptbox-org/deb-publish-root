@@ -1,0 +1,4 @@
+This command checks if the packages apache2 and apache2-utils have been installed on the remote server. Example:{br}
+{program} apache root@myserver.com -check-if-installed{br}
+If the packages have been installed, the command outputs 'yes'. Otherwise, it outputs 'no'.
+

@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#-------------------------------------------------------
+# Written by Erik Poupaert
+# Phnom Penh, Cambodia, April 2013
+# Licensed under the General Public License (GPL)
+#-------------------------------------------------------
+source "$UTIL_FOLDER/args.fix-whitespace"
+rootAtServer="$1"
+source "$UTIL_FOLDER/remote-account.validate"
+remote_account_validate "$rootAtServer" > /dev/null
+domain="$2"
+source "$UTIL_FOLDER/domain.validate"
+domain_validate "$domain"
+file=$($SSH "$rootAtServer" ls /etc/apache2/sites-available/reprepro.$domain 2> /dev/null)
+if [ "$file" = "" ] ; then
+        echo "no"
+else
+        echo "yes"
+fi
+

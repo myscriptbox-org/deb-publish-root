@@ -1,0 +1,5 @@
+This command creates the required {i}reprepro{/i} skeleton folders on the remote system for a user who will be publishing debian packages.{br}.Synopsis:{br}
+{program} [root@server] [user] -create-skeleton [domain]{br}
+ Example:{br}
+{program} root@myserver.com john -create-skeleton somerepository.com{br}
+

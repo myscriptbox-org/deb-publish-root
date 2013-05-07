@@ -1,0 +1,5 @@
+This command will delete the skeleton folders for a particular user on the remote server. Synopsis:{br}
+{program} [root@server] [user] -delete-skeleton{br}
+Example:{br}
+{program} root@myserver john -delete-skeleton
+

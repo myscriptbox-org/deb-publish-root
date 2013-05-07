@@ -1,0 +1,4 @@
+This command supplies a server name, if one is missing in apache's configuration file. Example:{br}
+{program} apache.servername root@myserver.com -fix{br}
+The command will set the server name to {i}localhost{/i}. This will stop apache from producing warnings.
+

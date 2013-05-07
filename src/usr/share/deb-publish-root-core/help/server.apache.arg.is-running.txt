@@ -1,0 +1,4 @@
+The command checks if apache is running on the remote server. Example:{br}
+{program} apache root@myserver.com -is-running{br}
+The command outputs 'yes' if apache is running, and 'no' if apache is not running.
+

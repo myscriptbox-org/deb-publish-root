@@ -1,0 +1,6 @@
+This command checks if a domain is being served on a remote server. Synopsis:{br}
+{program} server.vhost [root@server] [domain] -exists{br}
+Example:{br}
+{program} server.vhost root@myserver.com john.myserver.com -exists{br}
+The command outputs 'yes' if the domain exists and 'no' if it doesn't.
+

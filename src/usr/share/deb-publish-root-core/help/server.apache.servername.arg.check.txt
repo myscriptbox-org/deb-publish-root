@@ -1,0 +1,4 @@
+Apache issues warnings if the server name is not filled out. This command checks if a server name was supplied in apache's configuration file: {i}/etc/apache2/apache2.conf{/i}. Example:{br}
+{program} apache.servername root@myserver.com -check{br}
+The command outputs 'ok' if the servername was filled out and 'nok' if not.
+

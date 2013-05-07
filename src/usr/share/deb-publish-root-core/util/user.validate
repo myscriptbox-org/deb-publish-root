@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#-------------------------------------------------------
+# Written by Erik Poupaert
+# Phnom Penh, Cambodia, March 2013
+# Licensed under the General Public License (GPL)
+#-------------------------------------------------------
+function user_validate
+{
+        user="$1"
+        #check if it contains a space
+        if [[ "$user" != "${user% *}" ]]; then
+                echo "ERROR: username may not contain spaces." >&2
+                exit 1
+        fi
+}
+

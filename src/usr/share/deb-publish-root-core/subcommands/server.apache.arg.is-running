@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#-------------------------------------------------------
+# Written by Erik Poupaert
+# Phnom Penh, Cambodia, April 2013
+# Licensed under the General Public License (GPL)
+#-------------------------------------------------------
+source "$UTIL_FOLDER/args.fix-whitespace"
+rootAtServer="$1"
+source "$UTIL_FOLDER/remote-account.validate"
+remote_account_validate "$rootAtServer"  > /dev/null
+result=$($SSH "$rootAtServer" "/etc/init.d/apache2 status")
+result=$(echo "$result" | grep "NOT")
+if [ "$result" = "" ] ; then
+        echo "yes"
+else
+        echo "no"
+fi
+

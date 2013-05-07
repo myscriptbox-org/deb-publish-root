@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#-------------------------------------------------------
+# Written by Erik Poupaert
+# Phnom Penh, Cambodia, April 2013
+# Licensed under the General Public License (GPL)
+#-------------------------------------------------------
+source "$UTIL_FOLDER/args.fix-whitespace"
+rootAtServer="$1"
+source "$UTIL_FOLDER/remote-account.validate"
+remote_account_validate "$rootAtServer"  > /dev/null
+result=$($SSH "$rootAtServer" 'cat /etc/apache2/apache2.conf | grep ServerName | sed "s/^ *//g"')
+if [ "${result:0:1}" = '#' ] || [ "$result" = "" ] ; then
+        echo "nok"
+else
+        echo "ok"
+fi
+

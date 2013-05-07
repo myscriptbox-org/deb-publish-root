@@ -1,0 +1,10 @@
+This command shows the list of domains being published from a remote server. Synopsis:{br}
+{program} server [root@server] -show-vhosts{br}
+Example:{br}
+{program} server root@myserver.com -show-vhosts{br}
+Example output:{br}
+domain                   user     enabled{br}
+garagesoft.myserver.com  carlos   yes{br}
+john.myserver.com        john     no{br}
+internal.myserver.com    thanh    yes{br}
+

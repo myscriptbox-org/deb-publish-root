@@ -1,0 +1,3 @@
+This command is typically run after {command} server -apt-update. This command will upgrade all packages on the remote system to the latest versions inscribed in the {i}apt{/i} database. The {i}apt{/i} database contains a list of all packages with their most recent version available from the remote installation repositories. Example:{br}
+{program} server root@myserver.com -apt-upgrade{br}
+

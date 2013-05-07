@@ -1,0 +1,5 @@
+This command resumes the publication from a particular domain. Synopsis:{br}
+{program} server.vhost [root@server] [domain] -enable
+Example:{br}
+{program} server.vhost root@myserver.com packages-by-john.server.com -enable
+

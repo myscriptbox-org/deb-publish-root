@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#-------------------------------------------------------
+# Written by Erik Poupaert
+# Phnom Penh, Cambodia, April 2013
+# Licensed under the General Public License (GPL)
+#-------------------------------------------------------
+source "$UTIL_FOLDER/args.fix-whitespace"
+rootAtServer="$1"
+source "$UTIL_FOLDER/remote-account.validate"
+remote_account_validate "$rootAtServer" > /dev/null
+
+#uninstall both apache and reprepro
+
+"$THIS_SCRIPT" server.apache "$rootAtServer" -uninstall > /dev/null
+"$THIS_SCRIPT" server.reprepro "$rootAtServer" -uninstall > /dev/null
+

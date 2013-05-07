@@ -1,0 +1,4 @@
+This command will list the debian repository publishers on the remote server. Example:{br}
+{program} server root@myserver.com -show-users{br}
+This command outputs one line per publisher-user on the remote server.
+

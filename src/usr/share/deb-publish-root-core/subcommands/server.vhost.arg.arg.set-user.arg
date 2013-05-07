@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#-------------------------------------------------------
+# Written by Erik Poupaert
+# Phnom Penh, Cambodia, April 2013
+# Licensed under the General Public License (GPL)
+#-------------------------------------------------------
+source "$UTIL_FOLDER/args.fix-whitespace"
+rootAtServer="$1"
+source "$UTIL_FOLDER/remote-account.validate"
+remote_account_validate "$rootAtServer" > /dev/null
+domain="$2"
+source "$UTIL_FOLDER/domain.validate"
+domain_validate "$domain"
+user="$3"
+source "$UTIL_FOLDER/user.validate"
+source "$UTIL_FOLDER/remote-account.validate-exists"
+remote_account_validate_exists "$rootAtServer" "$user"
+tmpFile="/tmp/reprepro.vhost.$$"
+cat "$ETC_FOLDER/deb-publish-root.d/templates/reprepro.vhost"| sed 's|{serverName}|'"$domain"'|g' | \
+                sed 's|{documentRoot}|'"/home/$user/$domain/html"'|g' > $tmpFile
+$SCP -q $tmpFile $rootAtServer:/etc/apache2/sites-available/reprepro.$domain
+rm -f tmpFile
+$THIS_SCRIPT server.vhost $rootAtServer "$domain" -enable > /dev/null
+

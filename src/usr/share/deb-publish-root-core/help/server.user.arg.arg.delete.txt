@@ -1,0 +1,4 @@
+This command deletes a user account from the remote server. Example:{br}
+{program} server.user root@myserver.com john -delete{br}
+This example will delete the user 'john' from the server myserver.com.
+

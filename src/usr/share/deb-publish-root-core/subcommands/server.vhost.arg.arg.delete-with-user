@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#-------------------------------------------------------
+# Written by Erik Poupaert
+# Phnom Penh, Cambodia, April 2013
+# Licensed under the General Public License (GPL)
+#-------------------------------------------------------
+source "$UTIL_FOLDER/args.fix-whitespace"
+rootAtServer="$1"
+source "$UTIL_FOLDER/remote-account.validate"
+remote_account_validate "$rootAtServer" > /dev/null
+domain="$2"
+source "$UTIL_FOLDER/domain.validate"
+domain_validate "$domain"
+user=$($THIS_SCRIPT server.vhost "$rootAtServer" "$domain" -show-user)
+#delete user
+if [ ! "$user" = "" ] ; then
+        $THIS_SCRIPT server.user "$rootAtServer" "$user" -delete > /dev/null
+fi
+#create vhost
+$THIS_SCRIPT server.vhost "$rootAtServer" "$domain" -delete > /dev/null
+

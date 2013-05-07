@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#-------------------------------------------------------
+# Written by Erik Poupaert
+# Phnom Penh, Cambodia, March 2013
+# Licensed under the General Public License (GPL)
+#-------------------------------------------------------
+
+function remote_account_validate_exists
+{
+        rootAtServer="$1"
+        remoteAccount="$2"
+        result=$($THIS_SCRIPT server.user "$rootAtServer" "$user" -exists)
+        if [ "$result" = "no" ] ; then
+                echo "ERROR: user '$user' does not exist" >&2
+                exit 1
+        fi
+}
+

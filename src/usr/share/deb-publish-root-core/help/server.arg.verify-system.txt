@@ -1,0 +1,4 @@
+This command verifies if the minimum required programs are present on the remote server for the publication system to be able to be installed. It checks if {i}apt-get{/i} and {i}gpg{/i} are installed. Example:{br}
+{program} server root@myserver.com -verify-system{br}
+This command outputs 'ok' if the dependent programs are present, and 'nok' if they are not.
+

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#-------------------------------------------------------
+# Written by Erik Poupaert
+# Phnom Penh, Cambodia, April 2013
+# Licensed under the General Public License (GPL)
+#-------------------------------------------------------
+source "$UTIL_FOLDER/args.fix-whitespace"
+rootAtServer="$1"
+source "$UTIL_FOLDER/remote-account.validate"
+remote_account_validate "$rootAtServer" > /dev/null
+user="$2"
+source "$UTIL_FOLDER/user.validate"
+user_validate "$user"
+result=$($THIS_SCRIPT server.user "$rootAtServer" "$user" -exists)
+if [ "$result" = "yes" ] ; then        
+        $SSH "$rootAtServer" "deluser --remove-home --quiet $user"
+fi
+
+

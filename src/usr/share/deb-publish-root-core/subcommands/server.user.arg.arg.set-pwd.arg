@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#-------------------------------------------------------
+# Written by Erik Poupaert
+# Phnom Penh, Cambodia, April 2013
+# Licensed under the General Public License (GPL)
+#-------------------------------------------------------
+source "$UTIL_FOLDER/args.fix-whitespace"
+rootAtServer="$1"
+source "$UTIL_FOLDER/remote-account.validate"
+remote_account_validate "$rootAtServer" > /dev/null
+user="$2"
+source "$UTIL_FOLDER/user.validate"
+user_validate "$user"
+# check if the 'deb-publish' group exists
+grp=$($SSH "$rootAtServer" getent group deb-publish)
+if [ "$grp" = "" ] ; then
+        $SSH "$rootAtServer" addgroup --quiet deb-publish
+fi
+pwd="$3"
+result=$($THIS_SCRIPT server.user "$rootAtServer" "$user" -exists)
+if [ "$result" = "no" ] ; then
+        $SSH "$rootAtServer" "adduser --quiet --disabled-login --gecos '' $user ; usermod -G deb-publish $user"
+fi
+$SSH "$rootAtServer" "echo $user:$pwd | chpasswd"
+

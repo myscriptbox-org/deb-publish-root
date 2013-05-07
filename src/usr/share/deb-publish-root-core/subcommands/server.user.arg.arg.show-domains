@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#-------------------------------------------------------
+# Written by Erik Poupaert
+# Phnom Penh, Cambodia, April 2013
+# Licensed under the General Public License (GPL)
+#-------------------------------------------------------
+source "$UTIL_FOLDER/args.fix-whitespace"
+rootAtServer="$1"
+source "$UTIL_FOLDER/remote-account.validate"
+remote_account_validate "$rootAtServer" > /dev/null
+user="$2"
+source "$UTIL_FOLDER/user.validate"
+user_validate "$user"
+$SSH "$rootAtServer" find /home/$user '! -iname ".*"' -maxdepth 1 -mindepth 1  -type d  -exec "basename {} \;"
+

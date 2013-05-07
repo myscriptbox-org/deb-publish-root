@@ -1,0 +1,3 @@
+This command installs {i}reprepro{/i} on the remote system. Example:{br}
+{program} server.reprepro root@myserver.com -install{br}
+

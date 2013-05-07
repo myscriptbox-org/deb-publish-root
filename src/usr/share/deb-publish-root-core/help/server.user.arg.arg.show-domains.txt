@@ -1,0 +1,6 @@
+This command will list the domains managed by a particular user on the remote server. Synopsis:{br}
+{program} server.user [root@server.com] [user] -show-domains{br}
+Example:{br}
+{program} server.user root@myserver.com carl -show-domains{br}
+This command outputs one line per domain managed by the user on the remote server.
+

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#-------------------------------------------------------
+# Written by Erik Poupaert
+# Phnom Penh, Cambodia, April 2013
+# Licensed under the General Public License (GPL)
+#-------------------------------------------------------
+source "$UTIL_FOLDER/args.fix-whitespace"
+rootAtServer="$1"
+source "$UTIL_FOLDER/remote-account.validate"
+remote_account_validate "$rootAtServer" > /dev/null
+source "$UTIL_FOLDER/server.package.check-if-installed"
+result=$(server_package_check_if_installed "$rootAtServer" reprepro)
+echo "$result";
+

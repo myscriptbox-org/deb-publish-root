@@ -1,0 +1,4 @@
+This command installs the apache2 and apache2-utils packages on the remote server. Example:{br}
+{program} apache root@myserver.com -install
+
+

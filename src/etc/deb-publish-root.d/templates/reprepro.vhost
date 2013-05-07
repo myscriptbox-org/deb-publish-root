@@ -1,0 +1,32 @@
+<VirtualHost *:80>
+        ServerName {serverName}
+        DocumentRoot {documentRoot}
+
+        <Directory {documentRoot}>
+                Options Indexes MultiViews
+		DirectoryIndex index.html
+                AllowOverride All
+                Order allow,deny
+                allow from all
+        </Directory>
+
+	<Directory "{documentRoot}/*/conf">
+                Order allow,deny
+                Deny from all
+                Satisfy all
+        </Directory>
+
+	<Directory "{documentRoot}/*/db">
+                Order allow,deny
+                Deny from all
+                Satisfy all
+        </Directory>
+
+	<Directory "{documentRoot}/*/incoming">
+                Order allow,deny
+                Deny from all
+                Satisfy all
+        </Directory>
+
+</VirtualHost>
+

@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#-------------------------------------------------------
+# Written by Erik Poupaert
+# Phnom Penh, Cambodia, April 2013
+# Licensed under the General Public License (GPL)
+#-------------------------------------------------------
+source "$UTIL_FOLDER/args.fix-whitespace"
+rootAtServer="$1"
+source "$UTIL_FOLDER/remote-account.validate"
+remote_account_validate "$rootAtServer"  > /dev/null
+action="$2"
+if [ ! "$action" = "start" ] && [ ! "$action" = "stop" ] && [ ! "$action" = "restart" ] && [ ! "$action" = "reload" ] ; then
+        echo "ERROR: the control action must be 'start', 'stop', 'restart' or 'reload' " >&2
+        exit 1
+fi
+$SSH "$rootAtServer" "/etc/init.d/apache2 $action" > /dev/null
+

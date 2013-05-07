@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#-------------------------------------------------------
+# Written by Erik Poupaert
+# Phnom Penh, Cambodia, April 2013
+# Licensed under the General Public License (GPL)
+#-------------------------------------------------------
+
+function server_package_install
+{
+        rootAtServer="$1"
+        packageDesired="$2"
+        $SSH "$rootAtServer" "dpkg --configure -a ; apt-get --assume-yes install $packageDesired"
+}
+

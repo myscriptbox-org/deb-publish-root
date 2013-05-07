@@ -1,0 +1,6 @@
+This command will create a new user on a remote server or change its password. If the user exists already, this command will just change his password. Synopsis:{br}
+{program} server.user [root@server] [user] -set-pwd [password]{br}
+Example:{br}
+{program} server.user root@myserver john -set-pwd '!?j.o.h.n*99'
+This command will also add the user to the group {i}deb-publish{/i} on the remote server.
+

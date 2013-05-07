@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#-------------------------------------------------------
+# Written by Erik Poupaert
+# Phnom Penh, Cambodia, April 2013
+# Licensed under the General Public License (GPL)
+#-------------------------------------------------------
+source "$UTIL_FOLDER/args.fix-whitespace"
+rootAtServer="$1"
+source "$UTIL_FOLDER/remote-account.validate"
+remote_account_validate "$rootAtServer" > /dev/null
+#both apache and reprepro must be installed
+apacheInstalled=$("$THIS_SCRIPT" server.apache "$rootAtServer" -check-if-installed)
+repreproInstalled=$("$THIS_SCRIPT" server.reprepro "$rootAtServer" -check-if-installed)
+if [ "$apacheInstalled" = "yes" ] && [ "$repreproInstalled" = "yes" ] ; then
+        echo "yes"
+else
+        echo "no"
+fi
+

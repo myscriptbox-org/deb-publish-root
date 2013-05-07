@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+#-------------------------------------------------------
+# Written by Erik Poupaert
+# Phnom Penh, Cambodia, April 2013
+# Licensed under the General Public License (GPL)
+#-------------------------------------------------------
+source "$UTIL_FOLDER/args.fix-whitespace"
+rootAtServer="$1"
+source "$UTIL_FOLDER/remote-account.validate"
+remote_account_validate "$rootAtServer" > /dev/null
+format="%-20s %-15s %-10s\n"
+printf "$format" "domain" "user" "enabled"
+remote_command="
+while read file; do 
+        base=\$(basename \$file)
+        domain=\$(echo \$base | sed 's/^reprepro\.\(.*\)/\1/')
+        user=\$(cat \$file | grep DocumentRoot | sed 's|.*DocumentRoot */home/\([^/]*\)/.*|\1|')
+        found=\$(find "/etc/apache2/sites-enabled/\$base" -type l 2> /dev/null)
+        if [ -z "\$found" ] ; then
+             enabled="no"
+        else
+             enabled="yes"
+        fi
+        printf '$format' "\$domain" "\$user" "\$enabled"
+done < <(ls /etc/apache2/sites-available/reprepro.*)
+"
+$SSH "$rootAtServer" 'bash -s' <<< "$remote_command"
+

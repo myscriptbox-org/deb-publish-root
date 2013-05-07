@@ -1,0 +1,5 @@
+This command pauses the publication from a particular domain. Synopsis:{br}
+{program} server.vhost [root@server] [domain] -disable
+Example:{br}
+{program} server.vhost root@myserver.com packages-by-john.server.com -disable
+

@@ -1,0 +1,5 @@
+This command will delete a virtual apache host on the remote server. It will also delete the user account and its data, though. Synopsis:{br}
+{program} server.vhost [root@server] [domain] -delete-with-user{br}
+Example:{br}
+{program} server.vhost root@myserver.com packages-by-john.myserver.com -delete-with-user
+

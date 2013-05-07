@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#-------------------------------------------------------
+# Written by Erik Poupaert
+# Phnom Penh, Cambodia, April 2013
+# Licensed under the General Public License (GPL)
+#-------------------------------------------------------
+source "$UTIL_FOLDER/args.fix-whitespace"
+rootAtServer="$1"
+source "$UTIL_FOLDER/remote-account.validate"
+remote_account_validate "$rootAtServer" > /dev/null
+user="$2"
+source "$UTIL_FOLDER/user.validate"
+source "$UTIL_FOLDER/remote-account.validate-exists"
+remote_account_validate_exists "$rootAtServer" "$user"
+domain="$3"
+source "$UTIL_FOLDER/domain.validate"
+domain_validate "$domain"
+remote_command="
+mkdir -p /home/$user/$domain/html/apt
+chown -R $user.$user /home/$user/$domain
+chmod -R 775 /home/$user/$domain
+"
+$SSH "$rootAtServer" 'bash -s' <<<"$remote_command"
+

@@ -1,0 +1,5 @@
+This command attaches an existing user to a particular domain on the remote server. Synopsis:{br}
+{program} server.vhost [root@server] [domain] -set-user [user]{br}
+Example:
+{program} server.vhost root@myserver.com other-software.myserver.com -set-user carlos
+

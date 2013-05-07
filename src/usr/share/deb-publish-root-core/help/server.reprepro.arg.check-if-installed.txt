@@ -1,0 +1,4 @@
+This command verifies if {i}reprepro{/i} has been installed on the remote system. Example:{br}
+{program} server.reprepro root@myserver.com -check-if-installed{br}
+This command outputs 'yes' if {i}reprepro{/i} has been installed and 'no', if it hasn't.
+

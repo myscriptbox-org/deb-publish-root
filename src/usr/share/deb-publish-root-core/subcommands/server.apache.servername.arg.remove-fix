@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#-------------------------------------------------------
+# Written by Erik Poupaert
+# Phnom Penh, Cambodia, April 2013
+# Licensed under the General Public License (GPL)
+#-------------------------------------------------------
+source "$UTIL_FOLDER/args.fix-whitespace"
+rootAtServer="$1"
+source "$UTIL_FOLDER/remote-account.validate"
+remote_account_validate "$rootAtServer"  > /dev/null
+result=$($THIS_SCRIPT server.apache.servername "$rootAtServer" -check)
+if [ "$result" = "ok" ] ; then
+        remote_command="
+grep -v 'ServerName localhost' /etc/apache2/apache2.conf > /tmp/apache2.conf
+cp /tmp/apache2.conf /etc/apache2/apache2.conf
+rm -f /tmp/apache2.conf
+"
+        $SSH "$rootAtServer" 'bash -s' <<< "$remote_command"
+fi
+

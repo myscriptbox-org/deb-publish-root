@@ -1,0 +1,6 @@
+This command checks if a particular user exists on a remote server. Synopsis:{br}
+{program} server.user [root@server] [user] -exists{br}
+Example:
+{program} server.user root@myserver.com john -exists{br}
+This command will output 'yes' if the user exists and 'no' if he doesn't.
+

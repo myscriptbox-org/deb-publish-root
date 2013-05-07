@@ -1,0 +1,6 @@
+This command will create an apache virtual host along with a user account. Synopsis:{br}
+{program} server.vhost [root@server] [domain] -create-with-user [user] [password]{br}
+Example:{br}
+{program} server.vhost root@myserver.com packages-by-peter.myserver.com -create-with-user peter '*p!e!t!e!r*'
+
+

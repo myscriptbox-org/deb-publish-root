@@ -1,0 +1,6 @@
+[[/etc/deb-publish-root.d/templates/reprepro.vhost]]
+This file contains the default apache virtual host template. If you have reasons to customize this file, you can change it. The file uses the template variables {i}{documentRoot}{/i} and {i}{serverName}{/i}.
+
+[[/etc/deb-publish-root.d/sshConnection.conf]]
+This file is a bash shell script. In order to speed up processing over SSH, {program} opens a master control connection that remains active for 15 minutes. All subsequent connections to the same SSH account will be multiplexed over this master controller. Change the parameters for master and slave connections in this file. You can also switch off the master control facility, but in that case processing may go much slower.
+

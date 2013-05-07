@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#-------------------------------------------------------
+# Written by Erik Poupaert
+# Phnom Penh, Cambodia, April 2013
+# Licensed under the General Public License (GPL)
+#-------------------------------------------------------
+source "$UTIL_FOLDER/args.fix-whitespace"
+rootAtServer="$1"
+source "$UTIL_FOLDER/remote-account.validate"
+remote_account_validate "$rootAtServer" > /dev/null
+#check if apt-get and gpg are installed
+aptInstalled=$($SSH "$rootAtServer" 'apt-get --version | head -n1 | sed "s/.*apt.*/apt/"')
+gpgInstalled=$($SSH "$rootAtServer" 'gpg --version | head -n1 | sed "s/.*gpg.*/gpg/"')
+if [ "$aptInstalled" = 'apt' ] && [ "$gpgInstalled" = 'gpg' ] ; then
+        echo 'ok'
+else
+        echo 'nok'
+fi
+

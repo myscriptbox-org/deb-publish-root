@@ -1,0 +1,5 @@
+This command will install the apache packages, fix the servername, if needed, and install reprepro. Example:{br}
+{program} server root@myserver.com -install{br}
+This command calls all installation tasks required the root level to prepare the server for serving debian repositories.
+
+

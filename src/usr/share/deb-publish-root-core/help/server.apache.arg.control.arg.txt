@@ -1,0 +1,4 @@
+This command issues control instructions to apache on the remote server. Example:{br}
+{program} apache root@myserver.com -control start{br}
+This example will start apache on the remote server. Permissible control instructions are: start, stop, restart, reload.
+

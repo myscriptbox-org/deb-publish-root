@@ -1,0 +1,7 @@
+This command queries what user is associated with a particular domain on the remote server. Synopsis:{br}
+{program} server.vhost [root@server] [domain] -show-user{br}
+Example:
+{program} server.vhost root@myserver.com garagesoft.myserver.com -show-user{br}
+This command will output the username from whose account the domain is being published.
+
+

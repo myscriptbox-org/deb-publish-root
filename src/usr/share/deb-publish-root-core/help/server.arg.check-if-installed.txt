@@ -1,0 +1,4 @@
+This command checks if the apache and reprepro packages have been installed on the remote server. Example:{br}
+{program} server root@myserver.com -check-if-installed{br}
+This command outputs 'yes' if the packages have been installed and 'no' if not.
+
