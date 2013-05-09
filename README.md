@@ -1,4 +1,4 @@
-# man page for deb-publish-root.
+# man page for deb-publish-root
 ## NAME 
 **deb-publish-root** server installation, publication user accounts and domains on a remote debian repository publication server. You need to be root on the remote server to use this program.
 
@@ -49,7 +49,7 @@ This command will update the _apt_ database on the remote system. The _apt_ data
 **deb-publish-root** server root@myserver.com -apt-update  
 
 ### server [obj] -apt-upgrade
-This command is typically run after {command} server -apt-update. This command will upgrade all packages on the remote system to the latest versions inscribed in the _apt_ database. The _apt_ database contains a list of all packages with their most recent version available from the remote installation repositories. Example:  
+This command is typically run after **deb-publish-root** server -apt-update. This command will upgrade all packages on the remote system to the latest versions inscribed in the _apt_ database. The _apt_ database contains a list of all packages with their most recent version available from the remote installation repositories. Example:  
 **deb-publish-root** server root@myserver.com -apt-upgrade  
 
 ### server [obj] -uninstall
@@ -255,3 +255,4 @@ Report bugs to: erik@sankuru.biz
 
 # COPYRIGHT
 Licensed under GPL
+folder/generate-readme-stdout executed.
