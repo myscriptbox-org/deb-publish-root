@@ -9,6 +9,7 @@ function server_package_uninstall
 {
         rootAtServer="$1"
         packageDesired="$2"
-        $SSH "$rootAtServer" "dpkg --configure -a; apt-get --assume-yes remove $packageDesired"
+        $SSH "$rootAtServer" 'bash -s' <<< "export DEBIAN_FRONTEND=noninteractive ; dpkg --configure -a; 
+                                apt-get --assume-yes remove $packageDesired"
 }
 

@@ -8,5 +8,5 @@ source "$UTIL_FOLDER/args.fix-whitespace"
 rootAtServer="$1"
 source "$UTIL_FOLDER/remote-account.validate"
 remote_account_validate "$rootAtServer" > /dev/null
-$SSH "$rootAtServer" apt-get upgrade
+$SSH "$rootAtServer"  'bash -s' <<< "DEBIAN_FRONTEND=noninteractive apt-get upgrade"
 

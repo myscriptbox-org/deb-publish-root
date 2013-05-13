@@ -9,6 +9,7 @@ function server_package_install
 {
         rootAtServer="$1"
         packageDesired="$2"
-        $SSH "$rootAtServer" "dpkg --configure -a ; apt-get --assume-yes install $packageDesired"
+        $SSH "$rootAtServer" 'bash -s' <<< "export DEBIAN_FRONTEND=noninteractive ; dpkg --configure -a ; 
+                        apt-get --assume-yes install $packageDesired"
 }
 
