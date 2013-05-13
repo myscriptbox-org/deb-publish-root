@@ -11,5 +11,9 @@ remote_account_validate "$rootAtServer"  > /dev/null
 source "$UTIL_FOLDER/server.package.install"
 server_package_install "$rootAtServer" "apache2 apache2-utils"
 #get rid of the default site
-$THIS_SCRIPT server.vhost "$rootAtServer" default -disable > /dev/null
+remote_commands="
+a2dissite default > /dev/null 2&>1
+/etc/init.d/apache2 reload
+"
+$SSH "$rootAtServer" 'bash -s' <<<"$remote_commands"
 
