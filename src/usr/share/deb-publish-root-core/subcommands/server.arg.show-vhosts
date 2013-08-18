@@ -9,8 +9,8 @@ rootAtServer="$1"
 source "$UTIL_FOLDER/remote-account.validate"
 remote_account_validate "$rootAtServer" > /dev/null
 format="%-20s %-15s %-10s\n"
-printf "$format" "domain" "user" "enabled"
 remote_command="
+first=1
 while read file; do 
         base=\$(basename \$file)
         domain=\$(echo \$base | sed 's/^reprepro\.\(.*\)/\1/')
@@ -21,8 +21,12 @@ while read file; do
         else
              enabled="yes"
         fi
+        if [ first -eq 1 ] ; then 
+        	printf "$format" "domain" "user" "enabled"
+                first=0
+        fi
         printf '$format' "\$domain" "\$user" "\$enabled"
-done < <(ls /etc/apache2/sites-available/reprepro.*)
+done < <(ls /etc/apache2/sites-available/reprepro.* 2> /dev/null)
 "
 $SSH "$rootAtServer" 'bash -s' <<< "$remote_command"
 
