@@ -10,7 +10,7 @@ rootAtServer="$1"
 source "$UTIL_FOLDER/remote-account.validate"
 remote_account_validate "$rootAtServer" > /dev/null
 #install both apache and reprepro
-"$THIS_SCRIPT" server.apache "$rootAtServer" -install > /dev/null
-"$THIS_SCRIPT" server.apache.servername "$rootAtServer" -fix > /dev/null
-"$THIS_SCRIPT" server.reprepro "$rootAtServer" -install > /dev/null
+"$THIS_SCRIPT" server.apache "$rootAtServer" -install # > /dev/null
+"$THIS_SCRIPT" server.apache.servername "$rootAtServer" -fix  # > /dev/null
+"$THIS_SCRIPT" server.reprepro "$rootAtServer" -install # > /dev/null
 
